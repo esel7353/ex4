@@ -35,4 +35,18 @@ alpha = sc.alpha
 e = sc.e
 h = sc.h
 hbar = sc.hbar
+  c = sc.c
+
+Hz = 1
+kHz = Hz * sc.kilo
+MHz = Hz * sc.mega
+GHz = Hz * sc.giga
+THz = Hz * sc.tera
+
+km = sc.kilo
+cm = sc.centi
+mm = sc.milli
+um = sc.micro
+nm = sc.nano
+
 
