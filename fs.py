@@ -1,7 +1,6 @@
 import scipy.constants as sc
 from math import *
 
-
 def E_n(n):
 	return - sc.m_e * sc.e**4/(8*sc.epsilon_0**2 * sc.h**2 * n**2)
 
@@ -15,10 +14,14 @@ def E_anomal(n, l, s, j):
 	return (E_nj(n, j) + deltaE_anomal(l, s, j), E_nj(n, j) - deltaE_anomal(l, s, j))
 
 def deltaE_anomal(l, s, j):
-	return	 g_j(l, s, j) * sc.physical_constants["Bohr magneton"][0]
+	return	 g_j(l, s, j) * bohrMag
 
 def g_dE_Ea(n, l, s, j):
 	return [g_j(l, s, j), deltaE_anomal(l, s, j) / sc.eV / sc.micro, E_nj(n, j) / sc.eV]
+
+def square(z):
+	return z**2
+
 
 bohrMag = sc.physical_constants["Bohr magneton"][0]
 eV = sc.eV
