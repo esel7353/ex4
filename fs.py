@@ -38,7 +38,7 @@ alpha = sc.alpha
 e = sc.e
 h = sc.h
 hbar = sc.hbar
-  c = sc.c
+c = sc.c
 
 Hz = 1
 kHz = Hz * sc.kilo
