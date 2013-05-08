@@ -19,9 +19,6 @@ def deltaE_anomal(l, s, j):
 def g_dE_Ea(n, l, s, j):
 	return [g_j(l, s, j), deltaE_anomal(l, s, j) / sc.eV / sc.micro, E_nj(n, j) / sc.eV]
 
-def square(z):
-	return z**2
-
 
 bohrMag = sc.physical_constants["Bohr magneton"][0]
 eV = sc.eV
