@@ -1,4 +1,7 @@
 *.swp
 cifs*
 *.pyc
+<<<<<<< HEAD
 __pycache__/*
+=======
+>>>>>>> 4cd43b97b331a73d9c0bebfe3f7fbcd1fb455009
