@@ -1,2 +1,4 @@
 *.swp
 cifs*
+*.pyc
+__pycache__/*
