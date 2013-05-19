@@ -1,6 +1,34 @@
+import scipy.constants as sp
+import numpy as np
 
-class atom:
-  
-  #creating a H-atom by default
-  def __init__(Z=1):
+SI = 1
+eV = sp.eV
+keV = eV * sp.kilo
+MeV = eV * sp.mega
+GeV = eV * sp.giga
+meV = eV * sp.milli
+ueV = eV * sp.micro
+
+class H_atom:
+  #state of the atom
+  n = 1
+
+  #tools
+  defaultUnitEnergy = SI
+
+  #generally used values
+  reducedMass = sp.e * sp.m_e / (sp.e + sp.m_e)
+  Ry = reducedMass*sp.e**4/(8*sp.epsilon_0**2*sp.h**2)
+
+  def  EnergyBohr(self, n="this"):
+    if isinstance(n, (list, tuple, range)): n = np.array(n);
+    if n=="this": n=self.n; 
     
+    #source Demtröder 3, edit. 4, eq. 3.106 
+    return -self.Ry/n**2 / self.defaultUnitEnergy 
+
+  def EnergyDeltaFineStructure(self, n, j):
+    return self.EnergyBohr(n) * sp.alpha**2 / n * (1/(j+0.5) - 3/4.0/n)
+
+  def EnergyFineStructure(self, n, j):
+    return self.EnergyBohr(n) + self.EnergyDeltaFineStructure(n, j)
