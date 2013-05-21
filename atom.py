@@ -11,6 +11,7 @@ ueV = eV * sp.micro
 
 class H_atom:
   #state of the atom
+  j = 0.5
   n = 1
 
   #tools
@@ -27,8 +28,11 @@ class H_atom:
     #source Demtroeder 3, edit. 4, eq. 3.106 
     return -self.Ry/n**2 / self.defaultUnitEnergy 
 
-  def EnergyDeltaFineStructure(self, n, j):
+  def EnergyDeltaFineStructure(self, n="this", j="this"):
+    if n == "this": n=self.n;
+    if j == "this": j=self.j;
+
     return self.EnergyBohr(n) * sp.alpha**2 / n * (1/(j+0.5) - 3/4.0/n)
 
-  def EnergyFineStructure(self, n, j):
+  def EnergyFineStructure(self, n="this", j="this"):
     return self.EnergyBohr(n) + self.EnergyDeltaFineStructure(n, j)
