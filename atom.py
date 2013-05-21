@@ -66,7 +66,7 @@ class H_atom:
     return [self.EnergyFineStructure(n, j), self.EnergyDeltaHyperFine(F, j, I)]
 
   # state must be tuple: (n, j [, F])
-  def radiation(self,state1, state2):
+  def radiation(self, state1, state2):
     if len(state1) == 2: state1 = state1 + (self.F, self.I);
     if len(state1) == 3: state1 = state1 + (self.I);
     if len(state2) == 2: state2 = state2 + (self.F, self.I);
