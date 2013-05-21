@@ -1,4 +1,4 @@
-import <cipy.constants as sp
+import scipy.constants as sp
 import numpy as np
 
 SI = 1
@@ -78,4 +78,4 @@ class H_atom:
 if __name__ == "__main__":
   a = H_atom()
   a.defaultUnitLength = nm
-  print(a.radiation( (3, 0), (1, 0) ))
+  print(a.radiation( (1, 0), (3, 2) ))
