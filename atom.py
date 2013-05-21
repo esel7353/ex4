@@ -66,7 +66,7 @@ class H_atom:
     #source Mayer-Kuckuk, edit. 4, eq. 5.51    
     return 0.5 * (F*(F+1) - j*(j+1) - I*(I+1))
 
-  def EnergyHyperFine(self, n, F, j ,I)
+  def EnergyHyperFine(self, n, F, j ,I):
     #own idea
     return [self.EnergyFineStructure(n, j), self.EnergieDeltaHyperFine(F, j, I)]
 
