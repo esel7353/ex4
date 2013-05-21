@@ -24,7 +24,7 @@ class H_atom:
     if isinstance(n, (list, tuple, range)): n = np.array(n);
     if n=="this": n=self.n; 
     
-    #source Demtröder 3, edit. 4, eq. 3.106 
+    #source Demtroeder 3, edit. 4, eq. 3.106 
     return -self.Ry/n**2 / self.defaultUnitEnergy 
 
   def EnergyDeltaFineStructure(self, n, j):
