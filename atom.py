@@ -62,12 +62,10 @@ class H_atom:
   def EnergyFineStructure(self, n="this", j="this"):
     return self.EnergyBohr(n) + self.EnergyDeltaFineStructure(n, j)
 
-<<<<<<< HEAD
   def EnergyHyperFine(self, n, F, j ,I)
     #own idea
     return [self.EnergyFineStructure(n, j), self.EnergieDeltaHyperFine(F, j, I)]
-=======
+
   def EnergyDeltaHyperFine(self, F, j, I):
     #source Mayer-Kuckuk, edit. 4, eq. 5.51    
     return 0.5 * (F*(F+1) - j*(j+1) - I*(I+1))
->>>>>>> c3221f67ce0b3b7aca2f8f0448844260c1389dd0
