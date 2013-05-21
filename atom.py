@@ -36,9 +36,9 @@ class H_atom:
   Ry = reducedMass*sp.e**4/(8*sp.epsilon_0**2*sp.h**2)
 
   #List for the Orbitals
-  O=["S","P","D","F","G"]
 
   def SetState(self,n=-1,s=-1,X="S",j=-1 ):
+    O=["S","P","D","F","G"]
     if n<=0 : self.n=n;
     if s<=0 : self.s=s;
     if j<=0 : self.j=j;
@@ -60,11 +60,14 @@ class H_atom:
   def EnergyFineStructure(self, n="this", j="this"):
     return self.EnergyBohr(n) + self.EnergyDeltaFineStructure(n, j)
 
-  def EnergyDeltaHyperFine(self, F, j, I):
+  def EnergyDeltaHyperFine(self, F="this", j="this", I="this"):
+    if F == "this": F = self.F;
+    if j == "this": j = self.j;
+    if I == "this": I = self.I;
     #source Mayer-Kuckuk, edit. 4, eq. 5.51    
     return 0.5 * (F*(F+1) - j*(j+1) - I*(I+1))
 
-  def EnergyHyperFine(self, n, j, F ,I):
+  def EnergyHyperFine(self, n="this", j="this", F="this" , I="this"):
     #own idea
     return [self.EnergyFineStructure(n, j), self.EnergyDeltaHyperFine(F, j, I)]
 
