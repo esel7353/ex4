@@ -1,4 +1,4 @@
-import scipy.constants as sp
+import <cipy.constants as sp
 import numpy as np
 
 SI = 1
@@ -17,8 +17,10 @@ pm = sp.pico
 
 class H_atom:
   #state of the atom
-  j = 0.5
   n = 1
+  l = 0
+  s = 0
+  j = 0.5
   F = 0
   I = 0.5
 
@@ -30,6 +32,15 @@ class H_atom:
   reducedMass = sp.e * sp.m_e / (sp.e + sp.m_e)
   Ry = reducedMass*sp.e**4/(8*sp.epsilon_0**2*sp.h**2)
 
+  #List for the Orbitals
+  O=["S","P","D","F","G"]
+
+  def SetState(self,n=-1,s=-1,X="S",j=-1 ):
+    if n<=0 : self.n=n;
+    if s<=0 : self.s=s;
+    if j<=0 : self.j=j;
+    l=O.index(X)
+  
   def  EnergyBohr(self, n="this"):
     if isinstance(n, (list, tuple, range)): n = np.array(n);
     if n=="this": n=self.n; 
@@ -63,7 +74,6 @@ class H_atom:
 
     deltaE = self.EnergyHyperFine(*state1)[0] - self.EnergyHyperFine(*state2)[0] 
     return sp.h * sp.c / deltaE / self.defaultUnitLength;
-
 
 if __name__ == "__main__":
   a = H_atom()
