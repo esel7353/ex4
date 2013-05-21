@@ -36,3 +36,7 @@ class H_atom:
 
   def EnergyFineStructure(self, n="this", j="this"):
     return self.EnergyBohr(n) + self.EnergyDeltaFineStructure(n, j)
+
+  def EnergyHyperFine(self, n, F, j ,I)
+    #own idea
+    return [self.EnergyFineStructure(n, j), self.EnergieDeltaHyperFine(F, j, I)]
