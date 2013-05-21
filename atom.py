@@ -56,5 +56,5 @@ class H_atom:
 
   def EnergyHyperFine(self, n, F, j ,I):
     #own idea
-    return [self.EnergyFineStructure(n, j), self.EnergieDeltaHyperFine(F, j, I)]
+    return [self.EnergyFineStructure(n, j), self.EnergyDeltaHyperFine(F, j, I)]
 
