@@ -32,11 +32,11 @@ class H_atom:
         break
         
     for i in range(0, len(tokens)):
-      if i-lPos = -2: self.n = tokens[i]; 
-      if i-lPos = -1: self.n = (tokens[i]-1)/2; 
-      if i-lPos = +1: self.j = tokens[i]; 
-      if i-lPos = +2: self.F = tokens[i]; 
-      if i-lPos = 0:
+      if i-lPos == -2: self.n = tokens[i]; 
+      if i-lPos == -1: self.n = (tokens[i]-1)/2; 
+      if i-lPos == +1: self.j = tokens[i]; 
+      if i-lPos == +2: self.F = tokens[i]; 
+      if i-lPos == 0:
         if tokens[i] == "s":  self.l = 0;
         if tokens[i] == "p":  self.l = 1;
         if tokens[i] == "d":  self.l = 2;
