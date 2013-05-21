@@ -2,12 +2,18 @@ import scipy.constants as sp
 import numpy as np
 
 SI = 1
+
 eV = sp.eV
 keV = eV * sp.kilo
 MeV = eV * sp.mega
 GeV = eV * sp.giga
 meV = eV * sp.milli
 ueV = eV * sp.micro
+
+nm = sp.nano
+um = sp.micro
+mm = sp.milli
+pm = sp.pico
 
 class H_atom:
   #state of the atom
@@ -18,6 +24,7 @@ class H_atom:
 
   #tools
   defaultUnitEnergy = SI
+  defaultUnitLength = SI
 
   #generally used values
   reducedMass = sp.e * sp.m_e / (sp.e + sp.m_e)
@@ -43,7 +50,22 @@ class H_atom:
     #source Mayer-Kuckuk, edit. 4, eq. 5.51    
     return 0.5 * (F*(F+1) - j*(j+1) - I*(I+1))
 
-  def EnergyHyperFine(self, n, F, j ,I):
+  def EnergyHyperFine(self, n, j, F ,I):
     #own idea
-    return [self.EnergyFineStructure(n, j), self.EnergieDeltaHyperFine(F, j, I)]
+    return [self.EnergyFineStructure(n, j), self.EnergyDeltaHyperFine(F, j, I)]
 
+  # state must be tuple: (n, j [, F])
+  def radiation(self,state1, state2):
+    if len(state1) == 2: state1 = state1 + (self.F, self.I);
+    if len(state1) == 3: state1 = state1 + (self.I);
+    if len(state2) == 2: state2 = state2 + (self.F, self.I);
+    if len(state2) == 3: state2 = state2 + (self.I);
+
+    deltaE = self.EnergyHyperFine(*state1)[0] - self.EnergyHyperFine(*state2)[0] 
+    return sp.h * sp.c / deltaE / self.defaultUnitLength;
+
+
+if __name__ == "__main__":
+  a = H_atom()
+  a.defaultUnitLength = nm
+  print(a.radiation( (3, 0), (1, 0) ))
