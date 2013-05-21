@@ -16,6 +16,9 @@ mm = sp.milli
 pm = sp.pico
 
 class H_atom:
+  """
+  Hello
+  """
   #state of the atom
   n = 1
   l = 0
@@ -65,8 +68,12 @@ class H_atom:
     #own idea
     return [self.EnergyFineStructure(n, j), self.EnergyDeltaHyperFine(F, j, I)]
 
-  # state must be tuple: (n, j [, F])
   def radiation(self, state1, state2):
+    """
+    This method calc. the wavelength of a state transition.
+    If the wavelenght is negative, the atom absorbed the
+    photon.
+    """
     if len(state1) == 2: state1 = state1 + (self.F, self.I);
     if len(state1) == 3: state1 = state1 + (self.I);
     if len(state2) == 2: state2 = state2 + (self.F, self.I);
