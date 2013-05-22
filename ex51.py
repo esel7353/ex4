@@ -5,3 +5,4 @@ v = [x * 100 for x in v]
 
 for F in range(0, 5):
   print(sp.h * sp.c * v[F] / (F+3) / sp.eV / sp.micro )
+
