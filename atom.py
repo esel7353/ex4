@@ -15,10 +15,11 @@ um = sp.micro
 mm = sp.milli
 pm = sp.pico
 
+"""
+This objects of this class represent H atoms.
+The methods are used to calculate the energy levels.
+"""
 class H_atom:
-  """
-  Hello
-  """
   #state of the atom
   n = 1
   l = 0
