@@ -1,0 +1,286 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      9766,        277]
+NotebookOptionsPosition[      8895,        245]
+NotebookOutlinePosition[      9422,        265]
+CellTagsIndexPosition[      9379,        262]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Zu Aufgabe 1", "Section",
+ CellChangeTimes->{{3.578222012749132*^9, 3.578222015228178*^9}, {
+  3.579432109791297*^9, 3.579432112374928*^9}}],
+
+Cell["\<\
+L\[ODoubleDot]sungen der Wellenfunktion im H-Atom\
+\>", "Text",
+ CellChangeTimes->{{3.579433953803424*^9, 3.579433967883185*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[CapitalPsi]", "[", 
+    RowBox[{
+    "n_", ",", " ", "l_", ",", " ", "m_", ",", " ", "r_", ",", " ", 
+     "\[Theta]_", ",", " ", "\[Phi]_"}], "]"}], " ", "=", 
+   RowBox[{
+    RowBox[{"SphericalHarmonicY", "[", 
+     RowBox[{
+      StyleBox["l", "TI"], ",", 
+      StyleBox["m", "TI"], ",", 
+      StyleBox["\[Theta]", "TR"], ",", 
+      StyleBox["\[Phi]", "TR"]}], "]"}], " ", "*", " ", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["2", 
+         RowBox[{"n", " ", "*", "a"}]], ")"}], "3"], "*", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"n", "-", "l", "-", "1"}], ")"}], "!"}], 
+       RowBox[{"2", "*", "n", "*", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n", "+", "l"}], ")"}], "!"}], ")"}]}]]}]], "*", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"2", "*", 
+         RowBox[{
+          RowBox[{"r", "/", "n"}], "/", "a"}]}], ")"}]}], "/", "2"}], "]"}], 
+    "*", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"2", "*", 
+       RowBox[{
+        RowBox[{"r", "/", "a"}], "/", "n"}]}], ")"}], "l"], "*", 
+    RowBox[{"LaguerreL", "[", 
+     RowBox[{
+      RowBox[{"n", "-", "l", "-", "1"}], ",", " ", 
+      RowBox[{
+       RowBox[{"2", "*", "l"}], "+", "1"}], ",", " ", 
+      RowBox[{"2", "*", 
+       RowBox[{
+        RowBox[{"r", "/", "n"}], "/", "a"}]}]}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5782164652729254`*^9, 3.5782164926821733`*^9}, {
+   3.578216658745463*^9, 3.5782166936115236`*^9}, {3.578216786728086*^9, 
+   3.5782168430203857`*^9}, {3.578217012578081*^9, 3.578217014169284*^9}, {
+   3.578217129435087*^9, 3.578217136205499*^9}, {3.578217178684373*^9, 
+   3.578217375494316*^9}, {3.5782174201883945`*^9, 3.578217455054455*^9}, {
+   3.578217657730008*^9, 3.5782176603352127`*^9}, {3.5782177060900927`*^9, 
+   3.5782177239209237`*^9}, 3.5782178787199936`*^9, {3.5782180804751453`*^9, 
+   3.578218082487549*^9}, {3.5782181631396894`*^9, 3.578218166166095*^9}, {
+   3.5782182554762506`*^9, 3.578218256084652*^9}, {3.578220857864822*^9, 
+   3.578220872133685*^9}, {3.5794325554376583`*^9, 3.5794325582784567`*^9}}],
+
+Cell["Annahmen f\[UDoubleDot]r Mathematica", "Text",
+ CellChangeTimes->{{3.579433832804323*^9, 3.579433855085683*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Element", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "e", ",", "\[Epsilon]", ",", "r"}], "}"}], ",", " ", 
+    "Reals"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.578219362106984*^9, 3.5782193825586195`*^9}, {
+  3.5782199848186083`*^9, 3.578219991217952*^9}, {3.579432560996007*^9, 
+  3.5794325631881857`*^9}, {3.5794328435331697`*^9, 3.5794328495257597`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"$Assumptions", " ", "=", " ", 
+   RowBox[{"a", ">", "0"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5782195936460257`*^9, 3.5782196028656416`*^9}, 
+   3.5794321258510017`*^9, {3.579432566259139*^9, 3.579432577355115*^9}}],
+
+Cell["\<\
+Definition der Erwartungswertklammern Eww[n,l,m,nn,ll,mm] = <n, l, m | H_s | \
+nn, ll, mm>\
+\>", "Text",
+ CellChangeTimes->{{3.579433868729147*^9, 3.57943392411766*^9}, {
+  3.579434038775367*^9, 3.579434042422987*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Eww", "[", 
+    RowBox[{
+    "n_", ",", " ", "l_", ",", " ", "m_", ",", " ", "nn_", ",", " ", "ll_", 
+     ",", " ", "mm_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Conjugate", "[", 
+       RowBox[{"\[CapitalPsi]", "[", 
+        RowBox[{
+        "n", ",", "l", ",", "m", ",", "r", ",", " ", "\[Theta]", ",", " ", 
+         "\[Phi]"}], "]"}], "]"}], "*", 
+      RowBox[{"Cos", "[", "\[Theta]", "]"}], "*", "r", "*", "e", "*", 
+      "\[Epsilon]", "*", 
+      RowBox[{"\[CapitalPsi]", "[", 
+       RowBox[{
+       "nn", ",", "ll", ",", "mm", ",", "r", ",", " ", "\[Theta]", ",", " ", 
+        "\[Phi]"}], "]"}], "*", 
+      SuperscriptBox["r", "2"], "*", 
+      RowBox[{"Sin", "[", "\[Theta]", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", "0", ",", "\[Infinity]"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", ",", " ", "0", ",", 
+       RowBox[{"2", "*", "Pi"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", " ", "0", ",", " ", "Pi"}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.579432172425103*^9, 3.57943233027247*^9}, {
+  3.579432382431422*^9, 3.579432441777546*^9}, {3.5794324868488913`*^9, 
+  3.5794325280409193`*^9}, {3.5794325974425793`*^9, 3.579432617232337*^9}, {
+  3.579432966860174*^9, 3.579432967062402*^9}, {3.5794336833465967`*^9, 
+  3.579433702936038*^9}}],
+
+Cell["\<\
+Berechnung der Matrixdarstellung von H_s\
+\>", "Text",
+ CellChangeTimes->{{3.579433935029418*^9, 3.57943394744447*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "0", ",", "0", ",", "2", ",", "0", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "0", ",", "0", ",", "2", ",", "1", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "0", ",", "0", ",", "2", ",", "1", ",", "1"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "0", ",", "0", ",", "2", ",", "1", ",", 
+        RowBox[{"-", "1"}]}], "]"}]},
+     {
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "0", ",", "2", ",", "0", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "0", ",", "2", ",", "1", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "0", ",", "2", ",", "1", ",", "1"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "0", ",", "2", ",", "1", ",", 
+        RowBox[{"-", "1"}]}], "]"}]},
+     {
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "1", ",", "2", ",", "0", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "1", ",", "2", ",", "1", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "1", ",", "2", ",", "1", ",", "1"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", "1", ",", "2", ",", "1", ",", 
+        RowBox[{"-", "1"}]}], "]"}]},
+     {
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", 
+        RowBox[{"-", "1"}], ",", "2", ",", "0", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", 
+        RowBox[{"-", "1"}], ",", "2", ",", "1", ",", "0"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", 
+        RowBox[{"-", "1"}], ",", "2", ",", "1", ",", "1"}], "]"}], 
+      RowBox[{"Eww", "[", 
+       RowBox[{"2", ",", "1", ",", 
+        RowBox[{"-", "1"}], ",", "2", ",", "1", ",", 
+        RowBox[{"-", "1"}]}], "]"}]}
+    }], ")"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.579432623769836*^9, 3.5794327329756107`*^9}, {
+  3.5794333466350317`*^9, 3.5794333521739273`*^9}, {3.579433743965609*^9, 
+  3.579433766240617*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", 
+      RowBox[{
+       RowBox[{"-", "3"}], " ", "a", " ", "e", " ", "\[Epsilon]"}], "0", "0"},
+     {
+      RowBox[{
+       RowBox[{"-", "3"}], " ", "a", " ", "e", " ", "\[Epsilon]"}], "0", "0", 
+      "0"},
+     {"0", "0", "0", "0"},
+     {"0", "0", "0", "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.579433755278756*^9, 3.579433771465227*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{935, 946},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperOrientation"->"Portrait",
+"PaperSize"->{594.75, 842.25},
+"PostScriptOutputFile"->"/home/esel/print.pdf"},
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 146, 2, 74, "Section"],
+Cell[728, 26, 139, 3, 30, "Text"],
+Cell[870, 31, 2272, 59, 101, "Input"],
+Cell[3145, 92, 118, 1, 30, "Text"],
+Cell[3266, 95, 416, 9, 30, "Input"],
+Cell[3685, 106, 256, 5, 30, "Input"],
+Cell[3944, 113, 228, 5, 30, "Text"],
+Cell[4175, 120, 1446, 35, 77, "Input"],
+Cell[5624, 157, 129, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[5778, 164, 2196, 50, 106, "Input"],
+Cell[7977, 216, 890, 25, 89, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
